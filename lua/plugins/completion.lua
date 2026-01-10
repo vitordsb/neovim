@@ -18,14 +18,17 @@ return {
     version = '1.*',
     dependencies = { 'L3MON4D3/LuaSnip' },
     opts = {
-      keymap = { preset = 'super-tab' },
+      keymap = {
+        preset = 'super-tab',
+        ['<CR>'] = { 'accept', 'fallback' },
+      },
       completion = {
         documentation = { auto_show = false },
       },
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
       },
-      snippets = { preset = 'luasnip' },
+      snippets = { preset = 'luasnip', score_offset = 2 },
     },
     config = function(_, opts)
       require('blink.cmp').setup(opts)

@@ -7,7 +7,7 @@ return {
       require('toggleterm').setup {
         size = 15,
         open_mapping = [[<c-j>]], -- atalho principal
-        direction = 'float',      -- 🧠 padrão agora é float
+        direction = 'horizontal',      -- 🧠 padrão agora é horizontal 
         hide_numbers = true,
         shade_terminals = true,
         start_in_insert = true,
