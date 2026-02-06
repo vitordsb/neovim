@@ -34,8 +34,8 @@ o.termguicolors = true               -- enable true colour support
 o.breakindentopt = 'shift:2,min:20'  -- how far wrapped lines should be indented
 o.cmdheight = 0                      -- reduce the space of the command line when not needed
 o.breakindent = true                 -- wrapped lines should continue visually indented
-o.lazyredraw = true                  -- do not redraw while executing macros
-o.synmaxcol = 250                    -- do not syntax highlight lines after this column
+o.synmaxcol = 250                    -- do not syntax highlight lines after this column (performance)
+
 o.hidden = true                      -- allow switching buffers without saving
 o.equalalways = false                -- do not automatically resize windows when splitting
 o.scrolloff = 20                      -- keep 20 lines visible above/below the cursor

@@ -2,17 +2,7 @@ require 'keymaps'
 require 'options'
 require 'tmux-title'
 
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
 vim.opt.shell = '/usr/bin/fish'
-
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.hl.on_yank()
-  end,
-})
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -80,3 +70,16 @@ vim.api.nvim_create_autocmd('BufReadCmd', {
     vim.cmd 'bdelete!'
   end,
 })
+
+vim.g.clipboard = {
+  name = "wl-clipboard",
+  copy = {
+    ["+"] = "wl-copy",
+    ["*"] = "wl-copy",
+  },
+  paste = {
+    ["+"] = "wl-paste --no-newline",
+    ["*"] = "wl-paste --no-newline",
+  },
+  cache_enabled = 0,
+}

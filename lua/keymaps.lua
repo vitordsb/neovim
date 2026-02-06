@@ -18,6 +18,8 @@ map('n', '<Leader>e', function()
   vim.diagnostic.open_float(nil, { focus = false })
 end)
 
+map('n', '<leader>lg', '<cmd>lua _LAZYGIT_TOGGLE()<CR>', { desc = 'Open lazygit' })
+
 -- Vertical split (abre nova janela à direita)
 map('n', '<leader>t', ':vsplit<CR>', opts)
 map('n', '<leader>q', ':close<CR>', opts)
@@ -73,3 +75,12 @@ end
 
 map('n', 'p', persistent_paste('p'), { noremap = true, silent = true, desc = 'Colar mantendo último yank' })
 map('n', 'P', persistent_paste('P'), { noremap = true, silent = true, desc = 'Colar antes mantendo último yank' })
+
+-- Keymaps for debugging (nvim-dap)
+map('n', '<F5>', function() require('dap').toggle_breakpoint() end, { silent = true, desc = 'Toggle breakpoint' })
+map('n', '<F6>', function() require('dap').continue() end, { silent = true, desc = 'Start/Continue debugging' })
+map('n', '<F10>', function() require('dap').step_over() end, { silent = true, desc = 'Step over' })
+map('n', '<F11>', function() require('dap').step_into() end, { silent = true, desc = 'Step into' })
+map('n', '<S-F11>', function() require('dap').step_out() end, { silent = true, desc = 'Step out' })
+map('n', '<leader>du', function() require('dapui').toggle() end, { silent = true, desc = 'Toggle DAP UI' })
+map('n', '<leader>dr', function() require('dap').repl.open() end, { silent = true, desc = 'Open DAP REPL' })
